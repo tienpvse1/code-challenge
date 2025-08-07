@@ -35,7 +35,7 @@ function recursiveSum(n, sum = 0) {
 }
 ```
 
-2. sum_to_n_c: This is the recursive way to calculate the sum of 1-n elements. By using this recursive-method we can get the sum of 1-n elements in O(n) time.
+3. sum_to_n_c: This is the recursive way to calculate the sum of 1-n elements. By using this recursive-method we can get the sum of 1-n elements in O(n) time.
 
 **Summary**
 | Method                        | Time Complexity                        | Notes                                   |
