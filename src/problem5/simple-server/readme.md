@@ -80,6 +80,8 @@ $ pnpm run test:ui
 ```
 
 ## project structure
+```bash
+
 .
 ├── migrations/ # Database migration scripts
 ├── src/ # Application source code
@@ -102,3 +104,5 @@ $ pnpm run test:ui
 ├── readme.md # Project documentation
 ├── tsconfig.json # TypeScript compiler configuration
 └── vitest.config.ts # Vitest testing framework configuration
+
+```
