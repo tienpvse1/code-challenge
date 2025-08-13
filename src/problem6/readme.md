@@ -7,7 +7,7 @@
 
 ## Technical Considerations
 ### Scalability
-1. As a optimized way to handle read-load on leader board, we used Redis and SortedSet data structure, however this comes with a cost, we'll face some issue with maintain the data, to make sure that it'll stay even the Redis service goes down/restart, to deal with this problem, I suggest we'll use Event Sourcing pattern with RDB and WAL backup to make sure data is still there after server restarts.
+1. As a optimized way to handle heavy load on reading the leaderboard, we used Redis and SortedSet data structure, however this comes with a cost, we'll face some issue with maintain the data, to make sure that it'll stay even the Redis service goes down/restart, to deal with this problem, I suggest we'll use Event Sourcing pattern with RDB and WAL backup to make sure data is still there after server restarts.
 
 - Why event sourcing: We have 2 different database, the primary database which is the single source of truth, redis with SortedSet for leaderboard optimizedly read, and in order to achieve great write performance 2PC might not be an option. And Redis data can be lost after each restart, so we have to have a way to backup this data, while we can still combines RDB backup intervally with WAL backup, in case those two is lost, we can still rely on the event sourcing to replay those event from event store, and retrieve the leaderboard data again.
 - As we're using Kafka as an message broker, we can also use it as a event store for this problem.
